@@ -88,6 +88,8 @@ class OrderForm extends PureComponent {
 
     return (
       <div>
+        <OrderSummary
+          pizzaOrder = {pizzaOrder} />
         <BaseInput
           base = {base}
           onBaseChange={this.handleBaseChange} />
@@ -95,10 +97,6 @@ class OrderForm extends PureComponent {
         <SauceInput
           sauce = {sauce}
           onSauceChange={this.handleSauceChange} />
-
-        <DeliveryInput
-          delivery = {delivery}
-          onDeliveryChange={this.handleDeliveryChange} />
 
         <ToppingsInput
           pineapple = {pineapple}
@@ -110,8 +108,10 @@ class OrderForm extends PureComponent {
           chicken = {chicken}
           onToppingsChange={this.handleToppingsChange} />
 
-        <OrderSummary
-          pizzaOrder = {pizzaOrder} />
+        <DeliveryInput
+          delivery = {delivery}
+          onDeliveryChange={this.handleDeliveryChange} />
+
       </div>
     )
   }
