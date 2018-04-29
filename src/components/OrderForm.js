@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import BaseInput from './BaseInput'
 import DeliveryInput from './DeliveryInput'
 import SauceInput from './SauceInput'
-// import ToppingsInput from './ToppingsInput'
+import ToppingsInput from './ToppingsInput'
 
 class OrderForm extends PureComponent {
   constructor(props) {
@@ -18,6 +18,7 @@ class OrderForm extends PureComponent {
     this.handleBaseChange = this.handleBaseChange.bind(this);
     this.handleSauceChange = this.handleSauceChange.bind(this);
     this.handleDeliveryChange = this.handleDeliveryChange.bind(this);
+    this.handleToppingsChange = this.handleToppingsChange.bind(this);
   }
 
   handleBaseChange(baseInput) {
@@ -32,13 +33,17 @@ class OrderForm extends PureComponent {
     this.setState({delivery: deliveryInput});
   }
 
+  handleToppingsChange(toppingsInput) {
+    this.setState({toppings: toppingsInput});
+  }
+
   render() {
     const base = this.state.base
     const sauce = this.state.sauce
     const delivery = this.state.delivery
-    // const toppings = this.state.toppings
-    //console.log(base, sauce, delivery, toppings)
-    console.log(base, sauce, delivery)
+    const toppings = this.state.toppings
+    console.log(base, sauce, delivery, toppings)
+    // console.log(base, sauce, delivery)
 
     return (
       <div>
@@ -53,6 +58,10 @@ class OrderForm extends PureComponent {
         <DeliveryInput
           delivery = {delivery}
           onDeliveryChange={this.handleDeliveryChange} />
+
+        <ToppingsInput
+          toppings = {toppings}
+          onToppingsChange={this.handleToppingsChange} />
       </div>
     )
   }
