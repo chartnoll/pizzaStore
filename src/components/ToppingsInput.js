@@ -1,43 +1,21 @@
 import React, {PureComponent} from 'react'
-import { connect } from 'react-redux'
 
 class ToppingsInput extends PureComponent {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    const target = event.target;
-    let value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-    //console.log(target, value, name)
-    //value = target.type === 'checkbox' ? target.checked : target.value;
-    //console.log(target, value, name)
+    const target = event.target
+    let value = target.type === 'checkbox' ? target.checked : target.value
+    const name = target.name
     this.props.onToppingsChange(name, value)
-    /*this.setState({
-      [name]: value
-    });*/
-    //this.props.onToppingsChange(event.target.value);
   }
 
-  // handleSubmit(event) {
-  //   alert("You selected the following base: " + this.state.base);
-  //   event.preventDefault();
-  // }
-
   render() {
-    //const toppings = this.props.toppings
-    const pineapple = this.props.pineapple
-    const corn = this.props.corn
-    const olives = this.props.olives
-    const redOnion = this.props.redOnion
-    const spinach = this.props.spinach
-    const tomatoes = this.props.tomatoes
-    const chicken = this.props.chicken
 
-    //console.log(toppings)
     return (
       <div className="Toppings" >
      <h2>Chose your toppings</h2>
@@ -104,8 +82,5 @@ class ToppingsInput extends PureComponent {
     )
   }
 }
-
-//onSubmit={this.handleSubmit}
-// <input type="submit" value="Submit" />
 
 export default ToppingsInput

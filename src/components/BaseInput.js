@@ -1,5 +1,4 @@
 import React, {PureComponent} from 'react'
-import { connect } from 'react-redux'
 
 class BaseInput extends PureComponent {
   constructor(props) {
@@ -12,11 +11,6 @@ class BaseInput extends PureComponent {
     this.props.onBaseChange(event.target.value);
   }
 
-  // handleSubmit(event) {
-  //   alert("You selected the following base: " + this.state.base);
-  //   event.preventDefault();
-  // }
-
   render() {
     const base = this.props.base
     console.log(base)
@@ -25,13 +19,13 @@ class BaseInput extends PureComponent {
      <h2>Pizza Base</h2>
      <form className='SelectBase'>
          <label>
-           <h2>Pick your base size:</h2>
+           <p>Pick your base size:</p>
             <select className='BaseSelector'  value={base} onChange={this.handleChange}>
              <option value=""> </option>
-             <option value="20">20 cm</option>
-             <option value="25">25 cm</option>
-             <option value="30">30 cm</option>
-             <option value="35">35 cm</option>
+             <option value="20">20 cm New York style (€6,45)</option>
+             <option value="25">25 cm New York style (€8,99)</option>
+             <option value="30">30 cm New York style (€11,49)</option>
+             <option value="35">35 cm New York style (€13,49)</option>
            </select>
          </label>
        </form>
@@ -40,8 +34,5 @@ class BaseInput extends PureComponent {
     )
   }
 }
-
-//onSubmit={this.handleSubmit}
-// <input type="submit" value="Submit" />
 
 export default BaseInput

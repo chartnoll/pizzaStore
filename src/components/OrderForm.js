@@ -1,13 +1,13 @@
 import React, {PureComponent} from 'react'
-import { connect } from 'react-redux'
 import BaseInput from './BaseInput'
 import DeliveryInput from './DeliveryInput'
 import SauceInput from './SauceInput'
 import ToppingsInput from './ToppingsInput'
+import OrderSummary from './OrderSummary'
 
 class OrderForm extends PureComponent {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       base: 0,
       sauce: "",
@@ -21,10 +21,10 @@ class OrderForm extends PureComponent {
       delivery: ""
     }
 
-    this.handleBaseChange = this.handleBaseChange.bind(this);
-    this.handleSauceChange = this.handleSauceChange.bind(this);
-    this.handleDeliveryChange = this.handleDeliveryChange.bind(this);
-    this.handleToppingsChange = this.handleToppingsChange.bind(this);
+    this.handleBaseChange = this.handleBaseChange.bind(this)
+    this.handleSauceChange = this.handleSauceChange.bind(this)
+    this.handleDeliveryChange = this.handleDeliveryChange.bind(this)
+    this.handleToppingsChange = this.handleToppingsChange.bind(this)
   }
 
   handleBaseChange(baseInput) {
@@ -52,7 +52,6 @@ class OrderForm extends PureComponent {
   }
 
   handleToppingsChange(name, value) {
-    console.log("Inside the OF", value, name, this.noMoreThan3())
     if(this.noMoreThan3() === 3 && value === true){
       alert('You cannot select more than 3 toppings!');
       return
@@ -84,8 +83,8 @@ class OrderForm extends PureComponent {
     const spinach = this.state.spinach
     const tomatoes = this.state.tomatoes
     const chicken = this.state.chicken
-    console.log(base, sauce, delivery, sauce, pineapple, corn, olives, redOnion, spinach, tomatoes, chicken)
-    // console.log(base, sauce, delivery)
+    const pizzaOrder = {base, sauce, delivery, pineapple, corn, olives, redOnion,
+            spinach, tomatoes, chicken}
 
     return (
       <div>
@@ -110,6 +109,9 @@ class OrderForm extends PureComponent {
           tomatoes = {tomatoes}
           chicken = {chicken}
           onToppingsChange={this.handleToppingsChange} />
+
+        <OrderSummary
+          pizzaOrder = {pizzaOrder} />
       </div>
     )
   }
