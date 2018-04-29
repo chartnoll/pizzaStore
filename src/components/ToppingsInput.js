@@ -19,6 +19,7 @@ class ToppingsInput extends PureComponent {
     return (
       <div className="Toppings" >
      <h2>Chose your toppings</h2>
+     <p>A maximum of 3 toppings allowed, each costs €0,50</p>
      <form>
         <label>
           Pineapple:
