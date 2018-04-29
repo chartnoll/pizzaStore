@@ -11,7 +11,13 @@ class OrderForm extends PureComponent {
     this.state = {
       base: 0,
       sauce: "",
-      toppings: [],
+      pineapple: false,
+      corn: false,
+      olives: false,
+      redOnion: false,
+      spinach: false,
+      tomatoes: false,
+      chicken: false,
       delivery: ""
     }
 
@@ -33,16 +39,39 @@ class OrderForm extends PureComponent {
     this.setState({delivery: deliveryInput});
   }
 
-  handleToppingsChange(toppingsInput) {
-    this.setState({toppings: toppingsInput});
+  handleToppingsChange(name, value) {
+    console.log("Inside the order form", value, name)
+    this.noMoreThan3()
+    this.setState({[name]: value});
+    //this.noMoreThan3()
+  }
+
+  noMoreThan3() {
+    const toppings = [
+      this.state.pineapple,
+      this.state.corn,
+      this.state.olives,
+      this.state.redOnion,
+      this.state.spinach,
+      this.state.tomatoes,
+      this.state.chicken
+    ]
+    const numberOfToppings = toppings.filter( (topping) => topping === true).length
+    console.log(numberOfToppings)
   }
 
   render() {
     const base = this.state.base
     const sauce = this.state.sauce
     const delivery = this.state.delivery
-    const toppings = this.state.toppings
-    console.log(base, sauce, delivery, toppings)
+    const pineapple = this.state.pineapple
+    const corn = this.state.corn
+    const olives = this.state.olives
+    const redOnion = this.state.redOnion
+    const spinach = this.state.spinach
+    const tomatoes = this.state.tomatoes
+    const chicken = this.state.chicken
+    console.log(base, sauce, delivery, sauce, pineapple, corn, olives, redOnion, spinach, tomatoes, chicken)
     // console.log(base, sauce, delivery)
 
     return (
@@ -60,7 +89,13 @@ class OrderForm extends PureComponent {
           onDeliveryChange={this.handleDeliveryChange} />
 
         <ToppingsInput
-          toppings = {toppings}
+          pineapple = {pineapple}
+          corn = {corn}
+          olives = {olives}
+          redOnion = {redOnion}
+          spinach = {spinach}
+          tomatoes = {tomatoes}
+          chicken = {chicken}
           onToppingsChange={this.handleToppingsChange} />
       </div>
     )
