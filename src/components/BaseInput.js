@@ -27,11 +27,11 @@ class BaseInput extends PureComponent {
          <label>
            <h2>Pick your base size:</h2>
             <select className='BaseSelector'  value={base} onChange={this.handleChange}>
+             <option value=""> </option>
              <option value="20">20 cm</option>
              <option value="25">25 cm</option>
              <option value="30">30 cm</option>
              <option value="35">35 cm</option>
-
            </select>
          </label>
        </form>

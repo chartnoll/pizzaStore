@@ -28,22 +28,36 @@ class OrderForm extends PureComponent {
   }
 
   handleBaseChange(baseInput) {
+    if(baseInput === ""){
+      alert('You need to select a base!');
+      return
+    }
     this.setState({base: baseInput});
   }
 
   handleSauceChange(sauceInput) {
+    if(sauceInput === ""){
+      alert('You need to select a sauce!');
+      return
+    }
     this.setState({sauce: sauceInput});
   }
 
   handleDeliveryChange(deliveryInput) {
+    if(deliveryInput === ""){
+      alert('You need to select a delivery option!');
+      return
+    }
     this.setState({delivery: deliveryInput});
   }
 
   handleToppingsChange(name, value) {
-    console.log("Inside the order form", value, name)
-    this.noMoreThan3()
+    console.log("Inside the OF", value, name, this.noMoreThan3())
+    if(this.noMoreThan3() === 3 && value === true){
+      alert('You cannot select more than 3 toppings!');
+      return
+    }
     this.setState({[name]: value});
-    //this.noMoreThan3()
   }
 
   noMoreThan3() {
@@ -56,8 +70,7 @@ class OrderForm extends PureComponent {
       this.state.tomatoes,
       this.state.chicken
     ]
-    const numberOfToppings = toppings.filter( (topping) => topping === true).length
-    console.log(numberOfToppings)
+    return toppings.filter( (topping) => topping === true).length
   }
 
   render() {

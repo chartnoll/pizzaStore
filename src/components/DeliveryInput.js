@@ -27,9 +27,9 @@ class DeliveryInput extends PureComponent {
          <label>
            <h2>Would you like drone delivery:</h2>
             <select className='DeliverySelector'  value={delivery} onChange={this.handleChange}>
+             <option value=""> </option>
              <option value="drone">Drone Delivery</option>
              <option value="normal">Normal Delivery</option>
-
            </select>
          </label>
        </form>

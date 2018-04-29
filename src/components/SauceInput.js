@@ -27,6 +27,7 @@ class SauceInput extends PureComponent {
          <label>
            <h2>Pick your sauce:</h2>
             <select className='SauceSelector'  value={sauce} onChange={this.handleChange}>
+             <option value=""> </option>
              <option value="White">White Sauce</option>
              <option value="Red">Red Sauce</option>
              <option value="DoubleRed">Double Red Sauce</option>
