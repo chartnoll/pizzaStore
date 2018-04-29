@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import { connect } from 'react-redux'
 
-class Base extends PureComponent {
+class BaseInput extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -44,4 +44,4 @@ class Base extends PureComponent {
 //onSubmit={this.handleSubmit}
 // <input type="submit" value="Submit" />
 
-export default Base
+export default BaseInput

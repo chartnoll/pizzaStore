@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import { connect } from 'react-redux'
 import BaseInput from './BaseInput'
 // import DeliveryInput from './DeliveryInput'
-// import SauceInput from './SauceInput'
+import SauceInput from './SauceInput'
 // import ToppingsInput from './ToppingsInput'
 
 class OrderForm extends PureComponent {
@@ -34,17 +34,21 @@ class OrderForm extends PureComponent {
 
   render() {
     const base = this.state.base
-    // const sauce = this.state.sauce
+    const sauce = this.state.sauce
     // const delivery = this.state.delivery
     // const toppings = this.state.toppings
     //console.log(base, sauce, delivery, toppings)
-    console.log(base)
+    console.log(base, sauce)
 
     return (
       <div>
         <BaseInput
           base = {base}
           onBaseChange={this.handleBaseChange} />
+
+        <SauceInput
+          sauce = {sauce}
+          onSauceChange={this.handleSauceChange} />
       </div>
     )
   }
