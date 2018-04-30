@@ -67,7 +67,7 @@ class OrderSummary extends PureComponent {
     let pizzaCost = baseCost + sauceCost + toppingsCost
 
     const deliveryCost = this.deliveryCost(pizzaOrder.delivery, pizzaCost)
-    pizzaCost += deliveryCost
+    pizzaCost = Math.floor((deliveryCost+pizzaCost)*100)/100
 
     return (
       <div>
